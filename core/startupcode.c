@@ -39,7 +39,7 @@ void Reset_Handler(void)
 
     // zerando os valores de .bss
     dst = &_sbss;
-    while(src < &_ebss)
+    while(dst < &_ebss)
     {
         *dst++ = 0;
     }

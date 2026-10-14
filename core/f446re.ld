@@ -11,7 +11,7 @@ ENTRY(Reset_Handler)
 SECTIONS 
     {
 
-        .isr_vector:
+        .isr_vector :
         {
             . = ALIGN(4);
             KEEP(*(.isr_vector))
