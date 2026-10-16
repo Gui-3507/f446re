@@ -2,5 +2,5 @@
 #include "lib.h"
 
 void hello(){
-    printf("hello/n");
+    printf("hello\n");
 }
