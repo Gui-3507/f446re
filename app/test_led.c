@@ -16,7 +16,7 @@ int main(void){
 	while(1){
 		
 		GPIOA_ODR ^= 1<<5;
-		delay_ms(100);
+		delay_ms(1000);
 
 	}
 
