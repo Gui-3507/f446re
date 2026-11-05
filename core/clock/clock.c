@@ -7,6 +7,7 @@
 // variaveis globais
 uint32_t ctn_pll = 0;
 uint32_t SysClk  = 0;
+uint32_t ms_ctn  = 0;
 
 // criar a função init_clock 
 void init_clock(){
@@ -54,6 +55,7 @@ void init_clock(){
 
 	// configurações do systick
 	STK_CTRL &= ~(1<<2);
+	STK_CTRL |= 1<<1;
 	STK_LOAD = Systick_1ms - 1;
 	STK_VAL = 1;
 
@@ -67,4 +69,24 @@ void delay_ms(uint16_t x){
 		while(!(STK_CTRL & 1<<16));
 	}
 	STK_CTRL &= ~1;
+}
+
+// função de interrupção do systick
+void Systick_Handler(void){
+	
+	ms_ctn++;	
+}
+
+// função init ls
+void init_ms(void){
+
+	STK_CTRL |= 1;
+
+}
+
+// função ms
+uint32_t ms(void){
+
+	return ms_ctn;	
+
 }

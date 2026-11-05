@@ -9,14 +9,24 @@ int main(void){
 
 	// inicio dos clock
 	init_clock();
+	init_ms();
 
 	// configurando o pino do LED 
 	GPIOA_MODDER |= 1<<10;
 
+	int ant = 0;
+	int now = 0;
+	int ms_led_interval = 200;
+
+	// variaveis usadas para o led 1
 	while(1){
 		
-		GPIOA_ODR ^= 1<<5;
-		delay_ms(200);
+		// piscar o led com ms()
+		now = ms();
+		if ((now - ant) > ms_led_interval) {
+			GPIOA_ODR ^= 1<<5;
+			ant = now;
+		}
 
 	}
 

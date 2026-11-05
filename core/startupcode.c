@@ -4,6 +4,7 @@
 int main(void);
 void Reset_Handler(void);
 void Default_Handler(void);
+void Systick_Handler(void);
 
 // variaveis criadas no linker script, endereços de memorias de seções do codigo compilado
 extern uint32_t _estack;
@@ -13,14 +14,15 @@ extern uint32_t _edata;
 extern uint32_t _sbss;
 extern uint32_t _ebss;
 
-// atribuição das funções do vetor de interruções (NVIC)
+// atribuição das funções à tabela de interrupções
 __attribute__((section(".isr_vector")))
 void(*const isr_vector[])(void) = 
 {
     (void (*)(void))&_estack,
-    Reset_Handler,
+    [1] = Reset_Handler,
     Default_Handler,
     Default_Handler,
+    [15] = Systick_Handler,
 };
 
 // função de reset

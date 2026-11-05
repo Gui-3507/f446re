@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # quando usar a copia de voluma da pasta com os codigos
 # no WSL para o container, os arquivos vao para essa
 # pasta '/project'
-WORKDIR /project
+WORKDIR /work
 
 # Cmd define os comandos padrao do container iniciado sem argumentos
 CMD ["make"]

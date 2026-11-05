@@ -4,9 +4,10 @@
 //  + variaveis e constantes
 #define HSI_clk     16000000
 #define PLLP_clk    160000000
-// tempo de estabilização do PLL
 extern uint32_t ctn_pll;
 extern uint32_t SysClk;
+extern uint32_t ms_ctn;
+
 //  + Geral 
 #define RCC	    	0x40023800
 #define RCC_CR 		*(volatile uint32_t *)(RCC)
@@ -33,3 +34,7 @@ extern uint32_t SysClk;
 // Lista de funções
 void init_clock();
 void delay_ms(uint16_t x);
+void Systick_Handler(void);
+void init_ms(void);
+uint32_t ms(void);
+
