@@ -31,6 +31,8 @@ extern uint32_t ms_ctn;
 #define PWR_CR      *(volatile uint32_t *)(PWR)
 #define PWR_CSR     *(volatile uint32_t *)(PWR + 0x04)
 
+//  + Uart
+
 // Lista de funções
 void init_clock();
 void delay_ms(uint16_t x);

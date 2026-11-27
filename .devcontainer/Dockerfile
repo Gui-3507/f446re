@@ -10,6 +10,8 @@ LABEL maintainer="Guilherme"
 # apagar o cache do apt na camada final
 RUN apt-get update && apt-get install -y --no-install-recommends \
  gcc-arm-none-eabi \
+ libnewlib-arm-none-eabi \
+ libnewlib-dev \
  binutils-arm-none-eabi \
  gdb-multiarch \
  openocd \
